@@ -7,17 +7,27 @@ declare module "@capacitor/core" {
 }
 
 export interface CapacitorFirebaseDynamicLinksPlugin {
-  addListener(eventName: 'deepLinkOpen', listenerFunc: (data: DeepLinkOpen) => void): PluginListenerHandle;
+  addListener(
+    eventName: "deepLinkOpen",
+    listenerFunc: (data: DeepLinkOpen) => void
+  ): PluginListenerHandle;
+
+  /**
+   * Remove all native listeners for this plugin
+   */
+  removeAllListeners(): Promise<void>;
 
   /**
   Create a Firebase Dynamic Link.
   */
   createDynamicLink(linkConfiguration: LinkConfig): Promise<{ value: string }>;
-  createDynamicShortLink(linkConfiguration: LinkConfig): Promise<{ value: string }>;
+  createDynamicShortLink(
+    linkConfiguration: LinkConfig
+  ): Promise<{ value: string }>;
 }
 
 export interface DeepLinkOpen {
-  url: string
+  url: string;
 }
 
 export interface LinkConfig {

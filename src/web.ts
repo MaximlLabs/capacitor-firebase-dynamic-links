@@ -11,6 +11,11 @@ export class CapacitorFirebaseDynamicLinksWeb extends WebPlugin implements Capac
   }
 
 
+  removeAllListeners(): Promise<void>{
+    throw new Error('Method not implemented.');
+  }
+
+
   createDynamicLink(_: LinkConfig): Promise<{ value: string; }> {
     throw new Error('Method not implemented.');
   }
